@@ -1,0 +1,18 @@
+<tr>
+    <td
+        class="px-4 py-2 whitespace-nowrap overflow-hidden overflow-ellipsis text-sm font-medium text-gray-900 max-w-xs">
+        {{ url }}</td>
+    {% if result is string %}
+    <td colspan="5" class="px-4 py-2 whitespace-nowrap text-sm text-gray-500">{{ result }}</td>
+    {% else %}
+    <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-500">{{ result['data']['attributes']['status'] }}</td>
+    <td class="px-4 py-2 whitespace-nowrap text-sm text-red-500">{{ result['data']['attributes']['stats']['malicious']
+        }}</td>
+    <td class="px-4 py-2 whitespace-nowrap text-sm text-green-500">{{ result['data']['attributes']['stats']['harmless']
+        }}</td>
+    <td class="px-4 py-2 whitespace-nowrap text-sm text-yellow-500">{{
+        result['data']['attributes']['stats']['suspicious'] }}</td>
+    <td class="px-4 py-2 whitespace-nowrap text-sm text-blue-500">{{ result['data']['attributes']['stats']['undetected']
+        }}</td>
+    {% endif %}
+</tr>
